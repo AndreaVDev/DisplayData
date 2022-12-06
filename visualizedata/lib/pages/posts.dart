@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:visualizedata/pages/post_detail.dart';
 import 'package:visualizedata/services/http_service.dart';
 import 'package:visualizedata/models/post_model.dart';
+import 'package:visualizedata/widgets/nav-drawer.dart';
 
 class PostsPage extends StatelessWidget {
   final HttpService httpService = HttpService();
 
+  PostsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: AppBar(
-        title: Text("Posts"),
+        title: const Text("Posts"),
       ),
       body: FutureBuilder(
         future: httpService.getPosts(),
@@ -32,7 +36,7 @@ class PostsPage extends StatelessWidget {
                   .toList(),
             );
           } else {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
         },
       ),

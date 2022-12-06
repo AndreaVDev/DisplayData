@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:visualizedata/pages/posts.dart';
 import 'package:visualizedata/pages/photos.dart';
 import 'package:visualizedata/pages/todos.dart';
+import 'package:visualizedata/widgets/login_widget.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -10,19 +11,19 @@ class NavDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
+          const DrawerHeader(
+            decoration: BoxDecoration(
+                color: Colors.blue,
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/images/cover.jpg'))),
             child: Text(
               'Side menu',
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
-            //decoration: BoxDecoration(
-            //color: Colors.green,
-            //image: DecorationImage(
-            //fit: BoxFit.fill,
-            //image: AssetImage('assets/images/cover.jpg'))),
           ),
           ListTile(
-              leading: Icon(Icons.input),
+              leading: Icon(Icons.announcement),
               title: Text('Posts'),
               onTap: () {
                 Navigator.push(
@@ -31,7 +32,7 @@ class NavDrawer extends StatelessWidget {
                 );
               }),
           ListTile(
-              leading: Icon(Icons.verified_user),
+              leading: Icon(Icons.photo),
               title: Text('Photos'),
               onTap: () {
                 Navigator.push(
@@ -40,12 +41,22 @@ class NavDrawer extends StatelessWidget {
                 );
               }),
           ListTile(
-              leading: Icon(Icons.input),
+              leading: Icon(Icons.list),
               title: Text('Todos'),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => TodosPage()),
+                );
+              }),
+          ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Logout'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyFlutterLoginWidget()),
                 );
               }),
         ],
