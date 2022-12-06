@@ -24,9 +24,9 @@ class PhotosPage extends StatelessWidget {
               children: photos!
                   .map(
                     (Photo photo) => ListTile(
-                      leading: Image.network(photo.url),
+                      leading: Image.network(photo.thumbnailUrl),
                       title: Text(photo.title),
-                      subtitle: Text("${photo.url}"),
+                      subtitle: Text("${photo.albumId}"),
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => PhotoDetail(photo: photo))),
                     ),

@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart';
+import 'package:visualizedata/models/comment_model.dart';
 import 'package:visualizedata/models/post_model.dart';
 import 'package:visualizedata/models/photo_model.dart';
 import 'package:visualizedata/models/todo_model.dart';
@@ -57,6 +58,26 @@ class HttpService {
       return todos;
     } else {
       throw "Unable to retrive todos.";
+    }
+  }
+
+  Future<List<Comment>> getComments(int postId) async {
+    String commentsURL = "https://jsonplaceholder.typicode.com/posts/";
+    commentsURL += postId.toString();
+    commentsURL += '/comments';
+    Response res = await get(Uri.parse(commentsURL));
+
+    if (res.statusCode == 200) {
+      List<dynamic> body = jsonDecode(res.body);
+
+      List<Comment> comments = body
+          .map(
+            (dynamic item) => Comment.fromJson(item),
+          )
+          .toList();
+      return comments;
+    } else {
+      throw "Unable to retrive photos.";
     }
   }
 }
