@@ -40,7 +40,6 @@ class MyFlutterLoginWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterLogin(
       title: 'DataMe',
-      //logo: AssetImage('assets/images/6576.png_300.png'),
       onLogin: _authUser,
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
