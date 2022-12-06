@@ -27,10 +27,6 @@ class MyHomePage extends StatelessWidget {
       //drawer: NavDrawer(),
       appBar: AppBar(
         title: Text('Login'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
       ),
       body: Center(
         child: MyFlutterLoginWidget(),
