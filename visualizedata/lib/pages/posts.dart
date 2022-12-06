@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:visualizedata/pages/post_detail.dart';
 import 'package:visualizedata/services/http_service.dart';
 import 'package:visualizedata/models/post_model.dart';
 
@@ -22,6 +23,10 @@ class PostsPage extends StatelessWidget {
                     (Post post) => ListTile(
                       title: Text(post.title),
                       subtitle: Text("${post.userId}"),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => PostDetail(
+                                post: post,
+                              ))),
                     ),
                   )
                   .toList(),

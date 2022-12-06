@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:visualizedata/pages/todo_detail.dart';
 import 'package:visualizedata/services/http_service.dart';
 import 'package:visualizedata/models/todo_model.dart';
 
@@ -22,6 +23,8 @@ class TodosPage extends StatelessWidget {
                     (Todo todo) => ListTile(
                       title: Text(todo.title),
                       subtitle: Text("${todo.id}"),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TodoDetail(todo: todo))),
                     ),
                   )
                   .toList(),

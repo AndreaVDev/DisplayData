@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:visualizedata/pages/photo_detail.dart';
 import 'package:visualizedata/services/http_service.dart';
 import 'package:visualizedata/models/photo_model.dart';
 
@@ -23,6 +24,8 @@ class PhotosPage extends StatelessWidget {
                       leading: Image.network(photo.url),
                       title: Text(photo.title),
                       subtitle: Text("${photo.url}"),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => PhotoDetail(photo: photo))),
                     ),
                   )
                   .toList(),
